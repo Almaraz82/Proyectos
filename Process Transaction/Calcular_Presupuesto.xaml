@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Calcular_Presupuesto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Calcular_Presupuesto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="nombre" Type="InArgument(x:String)" />
     <x:Property Name="presupuesto" Type="OutArgument(x:Double)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1324,794</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1324,1392</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Calcular_Presupuesto_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,31 +60,24 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Calcular_Presupuesto" sap:VirtualizedContainerService.HintSize="619,644" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Calcular_Presupuesto" sap:VirtualizedContainerService.HintSize="638,1327" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Int32" Name="exitStatus">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="exitStatus" />
       <Variable x:TypeArguments="x:String" Name="exitMessage" />
       <Variable x:TypeArguments="x:String" Name="nombreProyecto" />
-      <Variable x:TypeArguments="x:Int32" Name="meses">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="meses" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="596,1489" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="596,1239" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="558,1261" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="558,1011" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -98,13 +91,13 @@
               <InArgument x:TypeArguments="x:String">[nombre.ToString.Substring(0,2)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Evalúa el nombre del proyecto para calcular el presupuesto" DisplayName="Switch nombreProyecto" Expression="[nombreProyecto.ToString]" sap:VirtualizedContainerService.HintSize="516,773" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+          <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Evalúa el nombre del proyecto para calcular el presupuesto" DisplayName="Switch nombreProyecto" Expression="[nombreProyecto.ToString]" sap:VirtualizedContainerService.HintSize="516,648" sap2010:WorkflowViewState.IdRef="Switch`1_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence x:Key="AL" sap:VirtualizedContainerService.HintSize="476,490" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence x:Key="AL" sap:VirtualizedContainerService.HintSize="476,365" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -123,7 +116,6 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[meses.ToString]" />
               <Assign sap2010:Annotation.AnnotationText="Calcula el presupuesto" DisplayName="Assign presupuesto" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_6">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[presupuesto]</OutArgument>
@@ -138,7 +130,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
             </Sequence>
-            <Sequence x:Key="AR" sap:VirtualizedContainerService.HintSize="476,490" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence x:Key="AR" sap:VirtualizedContainerService.HintSize="476,284" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,7 +149,6 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[meses.ToString]" />
               <Assign sap2010:Annotation.AnnotationText="Calcula el presupuesto" DisplayName="Assign presupuesto" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_9">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[presupuesto]</OutArgument>
@@ -172,7 +163,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
             </Sequence>
-            <Sequence x:Key="UL" sap:VirtualizedContainerService.HintSize="476,490" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence x:Key="UL" sap:VirtualizedContainerService.HintSize="476,284" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -191,7 +182,6 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[meses.ToString]" />
               <Assign sap2010:Annotation.AnnotationText="Calcula el presupuesto" DisplayName="Assign presupuesto" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_11">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[presupuesto]</OutArgument>
@@ -206,7 +196,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
             </Sequence>
-            <Sequence x:Key="UR" sap:VirtualizedContainerService.HintSize="476,490" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence x:Key="UR" sap:VirtualizedContainerService.HintSize="476,319" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -225,7 +215,6 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[meses.ToString]" />
               <Assign sap2010:Annotation.AnnotationText="Calcula el presupuesto" DisplayName="Assign presupuesto" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_13">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[presupuesto]</OutArgument>
@@ -254,7 +243,6 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="516,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[presupuesto]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
